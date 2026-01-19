@@ -19,58 +19,64 @@
             background-size: cover; 
         }
 
-        /* Khung chứa cố định khớp với vùng hình thoi đỏ */
+        /* Vùng nội dung trong hình thoi đỏ */
         .diamond-area {
             position: relative;
-            width: 80vw;
-            height: 80vw;
-            max-width: 320px;
-            max-height: 320px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 85vw;
+            height: 85vw;
+            max-width: 350px;
+            max-height: 350px;
             z-index: 10;
         }
 
-        /* Logo điều chỉnh kích thước thoải mái ở đây */
+        /* Logo to và sang trọng */
         .logo-vanzi {
-            width: 180px; /* Bạn có thể tăng lên 200px hoặc hơn vẫn không bị đẩy chữ */
+            width: 180px; 
             height: auto;
             position: absolute;
-            top: 15%; /* Cố định vị trí ở phần trên hình thoi */
-            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
+            left: 50%;
+            transform: translateX(-50%);
+            top: 12%; 
+            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.5));
         }
 
-        /* Khối nội dung chữ */
+        /* Khối nội dung chữ tinh giản */
         .text-group {
             position: absolute;
-            top: 45%; /* Bắt đầu từ giữa hình thoi trở xuống */
-            width: 85%;
+            top: 48%; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
             text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            /* Đổ bóng chữ tinh tế hơn */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
         }
 
         h1 { 
             font-family: 'Dancing Script', cursive;
-            color: #FFD700; 
-            font-size: 1.6rem; 
-            margin: 0;
+            color: #FFD700; /* Vàng Gold */
+            font-size: 1.7rem; 
+            margin: 0 0 8px 0;
+            letter-spacing: 1px;
         }
 
         #quote { 
             font-size: 1.1rem; 
-            color: #FFFACD; 
-            line-height: 1.4; 
+            color: #F7E7CE; /* Vàng Champagne sang trọng */
+            line-height: 1.6; 
             font-weight: bold;
-            margin: 5px 0;
+            margin: 0;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .signature {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #FFD700;
-            margin-top: 5px;
+            margin-top: 12px;
         }
     </style>
 </head>
@@ -80,7 +86,7 @@
         <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/Ba%CC%89n%20sao%20cu%CC%89a%20Ba%CC%89n%20sao%20cu%CC%89a%20logo%20vanzi%20ver%202%20(1).png?raw=true" alt="Logo Vanzi" class="logo-vanzi">
         
         <div class="text-group">
-            <h1>Chúc Mừng Năm Mới!</h1>
+            <h1>Chúc Mừng Năm Mới</h1>
             <div id="quote">Đang tải lời chúc...</div>
             <div class="signature">Thân tặng từ: Việt Anh</div>
         </div>
@@ -88,19 +94,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
+        // Danh sách lời chúc đã bỏ hết icon
         const quotes = [
-            "Việt Anh chúc bạn năm mới vạn sự như ý, tỷ sự như mơ! 🧧",
-            "Năm mới túi luôn đầy tiền, tim luôn đầy tình! ✨",
-            "Chúc bạn sức khỏe dồi dào, vạn sự tốt lành! 💪",
-            "Chúc mừng năm mới 2026 rực rỡ và thành công! 🧧",
-            "Cảm ơn bạn đã luôn đồng hành cùng mình! ❤️"
+            "Chúc bạn năm mới vạn sự như ý, tỷ sự như mơ",
+            "Năm mới túi luôn đầy tiền, tim luôn đầy tình",
+            "Chúc bạn sức khỏe dồi dào, vạn sự tốt lành",
+            "Chúc mừng năm mới 2026 rực rỡ và thành công",
+            "Cảm ơn bạn đã luôn đồng hành cùng mình"
         ];
         
         document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-        const duration = 1000;
+        // Hiệu ứng pháo giấy vàng đồng
+        const duration = 1200;
         const animationEnd = Date.now() + duration;
-        const colors = ['#FFD700', '#FFA500', '#FFF700'];
+        const colors = ['#FFD700', '#D4AF37', '#F7E7CE']; // Tông màu vàng kim loại
 
         (function frame() {
             const timeLeft = animationEnd - Date.now();
@@ -111,7 +119,7 @@
         }());
 
         document.addEventListener('click', () => {
-            confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 }, colors: colors });
+            confetti({ particleCount: 40, spread: 70, origin: { y: 0.6 }, colors: colors });
         });
     </script>
 </body>
