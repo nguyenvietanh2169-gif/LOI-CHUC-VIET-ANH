@@ -10,7 +10,7 @@
             font-family: 'Charmonman', cursive; 
             display: flex; justify-content: center; align-items: center; 
             height: 100vh; margin: 0; 
-            background: linear-gradient(135deg, #fce5e8 0%, #ffdadc 100%); /* Nền đỏ hồng nhẹ nhàng */
+            background: linear-gradient(135deg, #fce5e8 0%, #ffdadc 100%); 
             overflow: hidden;
             position: relative; 
         }
@@ -21,11 +21,16 @@
             border: 3px solid #ffd6d6; 
             position: relative; z-index: 10;
         }
-        .logo-container { width: 100px; height: 100px; margin: 0 auto 20px; }
+        .logo-container { 
+            width: 100px; height: 100px; margin: 0 auto 20px; 
+            background-color: #ff4500; /* Nền logo màu đỏ */
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 5px 15px rgba(255,69,0,0.3);
+            display: flex; justify-content: center; align-items: center;
+        }
         .logo-container img { 
-            width: 100%; height: 100%; object-fit: contain; 
-            border-radius: 50%; border: 3px solid #ff6347; 
-            box-shadow: 0 5px 15px rgba(255,99,71,0.2);
+            width: 90%; height: 90%; object-fit: contain; 
         }
         h1 { 
             font-family: 'Dancing Script', cursive;
@@ -52,7 +57,6 @@
             pointer-events: none; z-index: 5; 
         }
 
-        /* Hiệu ứng hoa mai rơi */
         .flower {
             position: absolute;
             background-color: yellow;
@@ -61,7 +65,6 @@
             animation: fall linear infinite;
             pointer-events: none;
             box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
-            /* Để tạo hình cánh hoa mai */
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
         }
 
@@ -100,50 +103,41 @@
             "Năm mới nhiều sức khoẻ, niềm vui và hạnh phúc đong đầy nhé! 🥳"
         ];
         
-        // Hiển thị lời chúc ngẫu nhiên
         document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-        // Hiệu ứng pháo hoa liên tục
-        var canvas = document.getElementById('fireworksCanvas');
-        var myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
-
-        var fire = function(particleRatio, opts) {
-          myConfetti(Object.assign({}, { 
-              particleCount: Math.floor(canvas.width * canvas.height * particleRatio), 
-              spread: 120,
-              origin: { y: 0.6 },
-              colors: ['#ff4500', '#ffd700', '#ffffff'] // Màu đỏ, vàng, trắng
-          }, opts));
+        // HIỆU ỨNG PHÁO GIẤY DÀY ĐẶC
+        var count = 200;
+        var defaults = {
+          origin: { y: 0.7 }
         };
 
-        (function frameFireworks() {
-            fire(0.0005, {
-                scalar: 2,
-                decay: 0.9,
-                startVelocity: 15,
-                ticks: 30
-            });
-            requestAnimationFrame(frameFireworks);
-        }());
+        function fire(particleRatio, opts) {
+          confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+          }));
+        }
+
+        // Bắn pháo giấy liên tục theo đợt để tạo độ dày
+        var interval = setInterval(function() {
+          fire(0.25, { spread: 26, startVelocity: 55 });
+          fire(0.2, { spread: 60 });
+          fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+          fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+          fire(0.1, { spread: 120, startVelocity: 45 });
+        }, 1500); // Mỗi 1.5 giây bắn một đợt lớn
 
         // Hiệu ứng hoa mai rơi
         const createFlower = () => {
             const flower = document.createElement('div');
             flower.classList.add('flower');
-            flower.style.left = Math.random() * 100 + 'vw'; // Vị trí ngẫu nhiên theo chiều ngang
-            flower.style.animationDuration = Math.random() * 5 + 5 + 's'; // Tốc độ rơi ngẫu nhiên
-            flower.style.width = Math.random() * 10 + 10 + 'px'; // Kích thước ngẫu nhiên
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = Math.random() * 5 + 5 + 's';
+            flower.style.width = Math.random() * 10 + 10 + 'px';
             flower.style.height = flower.style.width;
             document.body.appendChild(flower);
-
-            // Xóa cánh hoa sau khi rơi xuống để không làm đầy DOM
-            flower.addEventListener('animationend', () => {
-                flower.remove();
-            });
+            flower.addEventListener('animationend', () => { flower.remove(); });
         };
-
-        // Tạo cánh hoa liên tục
-        setInterval(createFlower, 500); // Tạo cánh hoa mới mỗi 0.5 giây
+        setInterval(createFlower, 400);
     </script>
 </body>
 </html>
