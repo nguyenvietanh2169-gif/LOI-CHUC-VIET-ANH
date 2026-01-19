@@ -1,66 +1,7 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lời chúc từ quán trà sữa</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #fff5f7; overflow: hidden; }
-        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(255,182,193,0.5); text-align: center; max-width: 85%; border: 2px solid #ffb6c1; position: relative; z-index: 10; }
-        h1 { color: #ff6b81; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        #quote { font-size: 1.4rem; color: #444; font-weight: bold; line-height: 1.5; }
-        .logo { font-size: 3.5rem; margin-bottom: 10px; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        canvas { position: absolute; top: 0; left: 0; pointer-events: none; }
-    </style>
-</head>
-<body>
-    <canvas id="canvas"></canvas>
-    <div class="card">
-        <div class="logo">🧋</div>
-        <h1>Thông điệp từ Vũ Trụ</h1>
-        <div id="quote">Đang lấy lời chúc...</div>
+<div class="card">
+    <div class="logo-container" style="margin-bottom: 15px;">
+        <img src="LINK_LOGO_CUA_BAN_TAI_DAY" alt="Logo" style="width: 100px; height: 100px; object-fit: contain; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-        const quotes = [
-            "Hôm nay bạn rất xinh đẹp! ✨",
-            "Một ngày mới tràn đầy năng lượng nhé! 💪",
-            "Uống trà sữa xong, mọi nỗi buồn sẽ tan biến. 🥤",
-            "Bạn xứng đáng với những điều tốt đẹp nhất. ❤️",
-            "Vũ trụ gửi tín hiệu: Bạn sắp có tin vui! 🌟",
-            "Đừng quên mỉm cười thật tươi nhé! 😊",
-            "Hy vọng ly trà sữa này làm bạn thấy hạnh phúc! 🌸"
-        ];
-        
-        // Hiển thị lời chúc
-        document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
-
-        // Tạo hiệu ứng pháo hoa khi vừa mở trang
-        var duration = 3 * 1000;
-        var end = Date.now() + duration;
-
-        (function frame() {
-          confetti({
-            particleCount: 3,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 },
-            colors: ['#ff6b81', '#ffb6c1', '#ffffff']
-          });
-          confetti({
-            particleCount: 3,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 },
-            colors: ['#ff6b81', '#ffb6c1', '#ffffff']
-          });
-
-          if (Date.now() < end) {
-            requestAnimationFrame(frame);
-          }
-        }());
-    </script>
-</body>
-</html>
+    <h1 style="font-size: 1rem; color: #ff6b81; letter-spacing: 1px;">THÔNG ĐIỆP TỪ VŨ TRỤ</h1>
+    <div id="quote" style="font-size: 1.4rem; font-weight: bold; color: #333; min-height: 60px;">Đang lấy lời chúc...</div>
+</div>
