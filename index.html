@@ -16,52 +16,54 @@
         body { 
             font-family: 'Charmonman', cursive; 
             display: flex; justify-content: center; align-items: center; 
-            background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/Ba%CC%89n%20sao%20cu%CC%89a%20Ba%CC%89n%20sao%20cu%CC%89a%20logo%20vanzi%20ver%202%20(1).png?raw=true') no-repeat center center; 
             background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/IMG_5894.jpeg?raw=true') no-repeat center center; 
             background-size: cover; 
         }
 
-        /* Vùng chứa nội dung nằm trong hình thoi */
+        /* Vùng chứa nội dung nằm trong hình thoi đỏ */
         .content-container {
             text-align: center;
-            width: 65%; /* Thu hẹp lại để chắc chắn nằm trong ô đỏ */
-            max-width: 260px;
+            width: 75%; /* Độ rộng tối ưu để chữ không chạm mép hình thoi */
+            max-width: 300px;
             z-index: 10;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* Đổ bóng chữ để nổi bật trên nền hoa văn */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            /* Đổ bóng nhẹ để nội dung tách biệt khỏi nền hoa văn */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .logo-vanzi {
-            width: 80px; /* Kích thước logo vừa vặn */
+            width: 160px; /* ĐÃ TĂNG KÍCH THƯỚC LOGO GẤP ĐÔI */
             height: auto;
-            margin-bottom: 5px;
-            filter: drop-shadow(0px 0px 5px rgba(255, 215, 0, 0.3));
+            margin-bottom: 0px; /* Giảm khoảng cách để cân đối với tiêu đề */
+            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
         }
 
         h1 { 
             font-family: 'Dancing Script', cursive;
-            color: #FFD700; /* Màu vàng Gold */
-            font-size: 1.5rem; 
-            margin: 5px 0;
+            color: #FFD700; 
+            font-size: 1.8rem; 
+            margin: 10px 0 5px 0;
             white-space: nowrap;
         }
 
         #quote { 
-            font-size: 1.05rem; 
-            color: #FFFACD; /* Màu vàng kem */
-            line-height: 1.4; 
+            font-size: 1.15rem; 
+            color: #FFFACD; 
+            line-height: 1.5; 
             font-weight: bold;
             margin-top: 5px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
         }
 
         .signature {
-            margin-top: 10px;
+            margin-top: 15px;
             font-family: 'Dancing Script', cursive;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: #FFD700;
         }
     </style>
@@ -81,16 +83,16 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
         const quotes = [
-            "Chúc bạn năm mới vạn sự như ý, tỷ sự như mơ! 🧧",
+            "Việt Anh chúc bạn năm mới vạn sự như ý, tỷ sự như mơ! 🧧",
             "Năm mới túi luôn đầy tiền, tim luôn đầy tình! ✨",
-            "Việt Anh chúc bạn sức khỏe dồi dào, vạn sự tốt lành! 💪",
+            "Chúc bạn sức khỏe dồi dào, vạn sự tốt lành! 💪",
             "Chúc mừng năm mới 2026 rực rỡ và thành công! 🧧",
             "Cảm ơn bạn đã luôn đồng hành cùng mình! ❤️"
         ];
         
         document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-        // Hiệu ứng pháo giấy vàng 1 giây
+        // Hiệu ứng pháo giấy vàng bắn 2 bên trong 1 giây
         const duration = 1000;
         const animationEnd = Date.now() + duration;
         const colors = ['#FFD700', '#FFA500', '#FFF700'];
@@ -100,14 +102,14 @@
             if (timeLeft <= 0) return;
 
             confetti({
-                particleCount: 3,
-                angle: 60, spread: 55,
+                particleCount: 4,
+                angle: 60, spread: 60,
                 origin: { x: 0, y: 0.8 },
                 colors: colors
             });
             confetti({
-                particleCount: 3,
-                angle: 120, spread: 55,
+                particleCount: 4,
+                angle: 120, spread: 60,
                 origin: { x: 1, y: 0.8 },
                 colors: colors
             });
@@ -115,10 +117,10 @@
             requestAnimationFrame(frame);
         }());
 
-        // Chạm màn hình để bắn pháo
+        // Chạm để bắn pháo
         document.addEventListener('click', () => {
             confetti({
-                particleCount: 50,
+                particleCount: 60,
                 spread: 70,
                 origin: { y: 0.6 },
                 colors: colors
