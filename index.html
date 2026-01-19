@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời chúc từ quán trà sữa</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #fdf2f2; }
+        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; max-width: 80%; border: 2px solid #ffb6c1; }
+        h1 { color: #ff6b81; font-size: 1.2rem; margin-bottom: 20px; }
+        #quote { font-size: 1.5rem; color: #333; font-weight: bold; line-height: 1.4; transition: opacity 0.5s; }
+        .logo { font-size: 3rem; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">🥤</div>
+        <h1>Thông điệp dành cho bạn:</h1>
+        <div id="quote">Đang lấy lời chúc...</div>
+    </div>
+
+    <script>
+        const quotes = [
+            "Hôm nay bạn rất xinh đẹp!",
+            "Một ngày mới tràn đầy năng lượng nhé!",
+            "Uống trà sữa xong, mọi nỗi buồn sẽ tan biến.",
+            "Bạn xứng đáng với những điều tốt đẹp nhất.",
+            "Cảm ơn bạn đã ghé quán hôm nay!",
+            "Vũ trụ gửi tín hiệu: Bạn sắp có tin vui!",
+            "Đừng quên mỉm cười thật tươi nhé!"
+        ];
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.max)];
+        document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
+    </script>
+</body>
+</html>
