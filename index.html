@@ -10,98 +10,72 @@
             margin: 0; padding: 0;
             width: 100%; height: 100%;
             overflow: hidden; position: fixed;
-            background-color: #8b0000;
+            background-color: #a52a2a;
         }
 
         body { 
             font-family: 'Charmonman', cursive; 
             display: flex; justify-content: center; align-items: center; 
-            /* Sử dụng link ảnh trực tiếp như bạn yêu cầu */
             background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/IMG_5894.jpeg?raw=true') no-repeat center center; 
             background-size: cover; 
-            transform: translateZ(0);
         }
 
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.25); 
-            z-index: 1;
-        }
-
-        .card { 
-            background: rgba(255, 255, 255, 0.92); 
-            padding: 25px 20px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-            text-align: center; 
-            width: 85%;
-            max-width: 320px;
-            position: relative; 
+        /* Vùng chứa lời chúc - Không còn khung trắng, nằm gọn trong ô hình thoi */
+        .content-wrapper {
+            text-align: center;
+            width: 70%; /* Ép chiều rộng để chữ không tràn ra ngoài hình thoi */
+            max-width: 280px;
             z-index: 10;
-            border: 2px solid #ffd700;
-        }
-
-        .logo-container { 
-            width: 100px;
-            margin: 0 auto 10px; 
-        }
-        .logo-container img { 
-            width: 100%; height: auto; 
+            padding: 20px;
+            /* Hiệu ứng đổ bóng nhẹ cho chữ để dễ đọc hơn trên nền hoa văn */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         h1 { 
             font-family: 'Dancing Script', cursive;
-            color: #ff4500; font-size: 1.5rem; margin: 5px 0; 
+            color: #FFD700; /* Màu vàng đồng rực rỡ */
+            font-size: 1.8rem; 
+            margin-bottom: 10px;
         }
 
         #quote { 
-            font-size: 1.1rem; color: #8b0000; 
-            line-height: 1.5; font-weight: bold; margin-top: 10px;
-            min-height: 60px;
-            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; 
+            color: #FFFACD; /* Màu vàng kem nhẹ, cực hợp với đỏ cam */
+            line-height: 1.6; 
+            font-weight: bold;
+            font-style: italic;
         }
 
         .signature {
-            margin-top: 15px;
+            margin-top: 20px;
             font-family: 'Dancing Script', cursive;
-            font-size: 1.2rem;
-            color: #ff4500;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
+            font-size: 1.3rem;
+            color: #FFD700;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="logo-container">
-            <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/logo%20feca%20xoa%20nen%20final.png?raw=true" alt="Logo">
-        </div>
-        
+    <div class="content-wrapper">
         <h1>Chúc Mừng Năm Mới!</h1>
-        <div id="quote">Đang chuẩn bị lời chúc...</div>
-        
+        <div id="quote">Đang tải lời chúc...</div>
         <div class="signature">Thân tặng từ: Việt Anh</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
-        // Danh sách lời chúc ngẫu nhiên từ Việt Anh
         const quotes = [
-            "Việt Anh chúc bạn năm mới vạn sự như ý, tỷ sự như mơ! 🧧",
-            "Chúc bạn năm mới túi luôn đầy tiền, tim luôn đầy tình! ✨",
-            "Năm mới 2026, Việt Anh chúc bạn sức khỏe dồi dào, vạn sự tốt lành! 💪",
+            "Chúc bạn năm mới vạn sự như ý, tỷ sự như mơ! 🧧",
+            "Năm mới túi luôn đầy tiền, tim luôn đầy tình! ✨",
+            "Việt Anh chúc bạn sức khỏe dồi dào, vạn sự tốt lành! 💪",
             "Chúc bạn và gia đình một năm mới an khang thịnh vượng! ❤️",
-            "Chúc mừng năm mới! Mong mọi dự định của bạn đều thành công rực rỡ! 🧧"
+            "Chúc mừng năm mới 2026 rực rỡ và thành công! 🧧"
         ];
         
-        // Chọn ngẫu nhiên lời chúc khi tải trang
         document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-        // Hiệu ứng pháo giấy bắn từ 2 bên trong 1 giây
-        const duration = 1 * 1000; // 1 giây
+        // Hiệu ứng pháo giấy vàng 2 bên trong 1 giây
+        const duration = 1000;
         const animationEnd = Date.now() + duration;
         const colors = ['#FFD700', '#FFA500', '#FFF700'];
 
@@ -109,17 +83,15 @@
             const timeLeft = animationEnd - Date.now();
             if (timeLeft <= 0) return;
 
-            // Bắn từ bên trái
             confetti({
-                particleCount: 5,
+                particleCount: 4,
                 angle: 60,
                 spread: 55,
                 origin: { x: 0, y: 0.8 },
                 colors: colors
             });
-            // Bắn từ bên phải
             confetti({
-                particleCount: 5,
+                particleCount: 4,
                 angle: 120,
                 spread: 55,
                 origin: { x: 1, y: 0.8 },
@@ -129,12 +101,12 @@
             requestAnimationFrame(frame);
         }());
 
-        // Bắn thêm pháo khi chạm vào màn hình
+        // Chạm để bắn pháo
         document.addEventListener('click', () => {
             confetti({
-                particleCount: 50,
-                spread: 60,
-                origin: { y: 0.7 },
+                particleCount: 60,
+                spread: 70,
+                origin: { y: 0.6 },
                 colors: colors
             });
         });
