@@ -3,96 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Lời chúc Tết đặc biệt từ Việt Anh</title>
+    <title>Lời chúc Tết từ Việt Anh</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Charmonman:wght@400;700&display=swap" rel="stylesheet">
     
     <meta property="og:title" content="Món quà Tết đặc biệt từ Việt Anh 🧧">
     <meta property="og:description" content="Chạm vào để nhận lời chúc may mắn cho năm mới 2026!">
     <meta property="og:image" content="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/IMG_5894.jpeg?raw=true">
     <meta property="og:type" content="website">
+    
     <style>
         html, body {
             margin: 0; padding: 0;
             width: 100%; height: 100%;
             overflow: hidden; position: fixed;
-            background-color: #a52a2a; /* Màu nền dự phòng nếu ảnh lỗi */
+            background-color: #8b0000;
         }
 
         body { 
             font-family: 'Charmonman', cursive; 
             display: flex; justify-content: center; align-items: center; 
-            /* Hình nền chính của bạn */
             background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/IMG_5894.jpeg?raw=true') no-repeat center center; 
             background-size: cover; 
         }
 
-        /* Vùng nội dung trong hình thoi đỏ */
-        .diamond-area {
+        /* Khung chứa giới hạn trong hình thoi */
+        .diamond-container {
             position: relative;
-            width: 85vw; /* Tương đối với chiều rộng màn hình */
-            height: 85vw; /* Đảm bảo tỷ lệ hình vuông, giúp logo và chữ không bị biến dạng */
-            max-width: 350px;
-            max-height: 350px;
+            width: 90vw;
+            height: 90vw;
+            max-width: 360px;
+            max-height: 360px;
             z-index: 10;
         }
 
-        /* Logo to và sang trọng, nằm trên cùng */
+        /* Đẩy Logo lên cao hơn (top: 8%) */
         .logo-vanzi {
-            width: 180px; /* Kích thước logo */
+            width: 170px; 
             height: auto;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            top: 12%; /* Điều chỉnh vị trí từ đỉnh xuống */
+            top: 8%; 
             filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.5));
         }
 
-        /* Khối nội dung chữ tinh giản, nằm dưới logo */
-        .text-group {
+        /* Khối nội dung chữ (top: 42%) giúp mọi thứ nằm gọn trong lòng hình thoi */
+        .content-group {
             position: absolute;
-            top: 48%; /* Điều chỉnh vị trí từ đỉnh xuống, sau logo */
+            top: 42%; 
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
+            width: 85%;
             text-align: center;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
         }
 
         h1 { 
             font-family: 'Dancing Script', cursive;
-            color: #FFD700; /* Vàng Gold */
-            font-size: 1.7rem; 
-            margin: 0 0 8px 0;
+            color: #FFD700; 
+            font-size: 1.6rem; 
+            margin: 0 0 5px 0;
             letter-spacing: 1px;
-            white-space: nowrap; /* Giữ "Chúc Mừng Năm Mới" trên một dòng */
         }
 
         #quote { 
-            font-size: 1.1rem; 
-            color: #F7E7CE; /* Vàng Champagne sang trọng */
-            line-height: 1.6; 
+            font-size: 1.05rem; 
+            color: #F7E7CE; 
+            line-height: 1.5; 
             font-weight: bold;
             margin: 0;
-            min-height: 70px; /* Đảm bảo chiều cao tối thiểu cho lời chúc */
-            display: flex; /* Dùng flex để căn giữa lời chúc theo chiều dọc */
+            min-height: 80px;
+            display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .signature {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: #FFD700;
-            margin-top: 12px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="diamond-area">
+    <div class="diamond-container">
         <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/Ba%CC%89n%20sao%20cu%CC%89a%20Ba%CC%89n%20sao%20cu%CC%89a%20logo%20vanzi%20ver%202%20(1).png?raw=true" alt="Logo Vanzi" class="logo-vanzi">
         
-        <div class="text-group">
+        <div class="content-group">
             <h1>Chúc Mừng Năm Mới</h1>
             <div id="quote">Đang tải lời chúc...</div>
             <div class="signature">Thân tặng từ: Việt Anh</div>
@@ -101,20 +100,26 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
+        // 10 câu chúc ngẫu nhiên (5 cũ + 5 mới sang trọng)
         const quotes = [
             "Chúc bạn năm mới vạn sự như ý, tỷ sự như mơ",
             "Năm mới túi luôn đầy tiền, tim luôn đầy tình",
             "Chúc bạn sức khỏe dồi dào, vạn sự tốt lành",
             "Chúc mừng năm mới 2026 rực rỡ và thành công",
-            "Cảm ơn bạn đã luôn đồng hành cùng mình"
+            "Cảm ơn bạn đã luôn đồng hành cùng mình",
+            "Năm mới công danh thuận lợi, sự nghiệp thăng hoa",
+            "Gói trọn tài lộc, bình an đến mọi nhà",
+            "Khai xuân rực rỡ, vạn dặm bình an",
+            "Hạnh phúc đong đầy, gói trọn mọi niềm vui",
+            "Tân niên vạn phúc, phú quý cát tường"
         ];
         
         document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-        // Hiệu ứng pháo giấy vàng đồng bắn 1.2 giây
-        const duration = 1200; // 1.2 giây
+        // Hiệu ứng pháo giấy vàng 1 giây
+        const duration = 1000;
         const animationEnd = Date.now() + duration;
-        const colors = ['#FFD700', '#D4AF37', '#F7E7CE']; // Tông màu vàng kim loại
+        const colors = ['#FFD700', '#D4AF37', '#F7E7CE'];
 
         (function frame() {
             const timeLeft = animationEnd - Date.now();
@@ -124,7 +129,6 @@
             requestAnimationFrame(frame);
         }());
 
-        // Chạm màn hình để bắn thêm pháo
         document.addEventListener('click', () => {
             confetti({ particleCount: 40, spread: 70, origin: { y: 0.6 }, colors: colors });
         });
