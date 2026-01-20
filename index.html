@@ -114,9 +114,11 @@
         
         document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-        const duration = 1000;
-        const animationEnd = Date.now() + duration;
         const colors = ['#FFD700', '#D4AF37', '#F7E7CE'];
+
+        // 1. Hiệu ứng pháo giấy bắn 2 bên trong 2 giây
+        const duration = 2000;
+        const animationEnd = Date.now() + duration;
 
         (function frame() {
             const timeLeft = animationEnd - Date.now();
@@ -125,6 +127,23 @@
             confetti({ particleCount: 3, angle: 120, spread: 60, origin: { x: 1, y: 0.8 }, colors: colors });
             requestAnimationFrame(frame);
         }());
+
+        // 2. Hiệu ứng pháo giấy rơi liên tục (Continuous snow effect)
+        setInterval(() => {
+            confetti({
+                particleCount: 1,
+                startVelocity: 0,
+                ticks: 200,
+                origin: {
+                    x: Math.random(),
+                    y: Math.random() - 0.2 // Rơi từ trên đỉnh màn hình
+                },
+                colors: colors,
+                gravity: 0.5,
+                scalar: 0.75,
+                drift: Math.random() - 0.5
+            });
+        }, 150); // Cứ mỗi 150ms sẽ có một mảnh pháo rơi
 
         document.addEventListener('click', () => {
             confetti({ particleCount: 40, spread: 70, origin: { y: 0.6 }, colors: colors });
