@@ -12,102 +12,137 @@
             margin: 0; padding: 0;
             width: 100%; height: 100%;
             overflow: hidden; position: fixed;
-            background-color: #4a0404;
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* NỀN MỚI CỦA BẠN */
+        /* NỀN TỔNG THỂ */
         body { 
             display: flex; justify-content: center; align-items: center; 
-            background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-VIET-ANH/blob/main/IMG_5937.jpeg?raw=true') no-repeat center center; 
-            background-size: cover; 
+            background-color: #4a0404;
         }
 
-        /* MÀN HÌNH NHẬP TÊN */
+        /* MÀN HÌNH 1: NHẬP TÊN (SANG TRỌNG) */
         #input-screen {
             position: absolute; z-index: 100;
-            background: rgba(0, 0, 0, 0.85);
             width: 100%; height: 100%;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
-            transition: all 0.8s ease;
+            /* Nền đỏ sâu thẳm hòa quyện */
+            background: radial-gradient(circle, #8b0000 0%, #4a0404 100%);
+            transition: all 1s ease;
         }
 
         .input-box {
-            background: linear-gradient(145deg, #ffd700, #b8860b);
-            padding: 30px; border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
-            text-align: center; width: 85%; max-width: 320px;
+            /* Hiệu ứng kính mờ sang trọng */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3); /* Viền vàng kim mảnh */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 85%; max-width: 350px;
+        }
+
+        .input-box h2 {
+            font-family: 'Cinzel', serif;
+            color: #FFD700;
+            margin-top: 0;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         input[type="text"] {
-            width: 100%; padding: 12px; margin: 15px 0;
-            border: none; border-radius: 8px;
-            font-size: 1rem; text-align: center; outline: none;
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 30px; /* Bo tròn thanh thoát */
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
         }
+
+        input[type="text"]::placeholder { color: rgba(255,255,255,0.5); }
 
         .btn-start {
-            background: #8b0000; color: #fff; border: none;
-            padding: 12px 25px; border-radius: 8px;
-            font-weight: bold; cursor: pointer;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            color: #4a0404;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* BỐ CỤC CHÍNH */
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5); }
+
+        /* MÀN HÌNH 2: LỜI CHÚC (NỀN NGỰA VÀNG) */
         #main-content {
             opacity: 0; pointer-events: none;
             transition: opacity 1.5s ease;
             width: 100%; height: 100%;
             display: flex; flex-direction: column;
-            justify-content: space-between; /* Đẩy các phần tử ra 2 đầu */
+            justify-content: space-between;
             align-items: center;
-            padding: 40px 20px; /* Tạo khoảng trống trên dưới */
+            padding: 50px 20px;
+            background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-VIET-ANH/blob/main/IMG_5937.jpeg?raw=true') no-repeat center center;
+            background-size: cover;
         }
 
-        /* LOGO NẰM PHÍA TRÊN CON NGỰA */
         .logo-vanzi {
             width: 150px;
-            height: auto;
-            margin-top: 20px; /* Điều chỉnh để nằm trên đầu ngựa */
-            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.8));
+            margin-top: 10px;
+            filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.7));
             animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
         }
 
-        /* KHỐI CHỮ NẰM PHÍA DƯỚI CON NGỰA */
         .text-group {
             width: 100%;
-            max-width: 350px;
+            max-width: 360px;
             text-align: center;
-            margin-bottom: 30px; /* Đẩy sát xuống dưới chân ngựa */
-            background: rgba(0, 0, 0, 0.3); /* Tạo nền mờ để dễ đọc chữ */
-            padding: 15px;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
             border-radius: 15px;
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         h1 { 
-            font-family: 'Cinzel', serif; /* Font chữ sang trọng hợp với ngựa vàng */
+            font-family: 'Cinzel', serif;
             color: #FFD700; 
             font-size: 1.5rem; 
             margin: 0 0 10px 0;
-            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         #quote { 
             font-size: 1.1rem; 
             color: #ffffff;
             font-weight: 500;
-            line-height: 1.5;
+            line-height: 1.6;
             min-height: 60px;
         }
 
         .signature {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #FFD700;
             margin-top: 10px;
         }
@@ -121,9 +156,10 @@
 
     <div id="input-screen">
         <div class="input-box">
-            <h2 style="color: #4a0404; font-family: 'Cinzel', serif; margin-top: 0;">NHẬP TÊN NHẬN QUÀ</h2>
-            <input type="text" id="userName" placeholder="Tên của bạn..." maxlength="20">
-            <button class="btn-start" onclick="startApp()">KHÁM PHÁ NGAY 🧧</button>
+            <h2>Mừng Xuân Ất Tỵ 🧧</h2>
+            <p style="color: #fff; font-size: 0.9rem; margin-bottom: 5px;">Việt Anh gửi tặng bạn món quà</p>
+            <input type="text" id="userName" placeholder="Vui lòng nhập tên bạn..." maxlength="20">
+            <button class="btn-start" onclick="startApp()">Mở Quà Ngay 🎵</button>
         </div>
     </div>
 
@@ -131,7 +167,7 @@
         <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/Ba%CC%89n%20sao%20cu%CC%89a%20Ba%CC%89n%20sao%20cu%CC%89a%20logo%20vanzi%20ver%202%20(1).png?raw=true" alt="Logo Vanzi" class="logo-vanzi">
         
         <div class="text-group">
-            <h1>HAPPY NEW YEAR</h1>
+            <h1>CHÚC MỪNG NĂM MỚI</h1>
             <div id="quote"></div>
             <div class="signature">Thân tặng từ: Việt Anh</div>
         </div>
@@ -142,15 +178,17 @@
         function startApp() {
             const name = document.getElementById('userName').value.trim();
             if (name === "") {
-                alert("Bạn chưa nhập tên mà!");
+                alert("Hãy để lại tên để Việt Anh biết bạn là ai nhé!");
                 return;
             }
 
             const audio = document.getElementById('tetAudio');
             audio.volume = 0.8;
-            audio.play();
+            audio.play().catch(() => console.log("Audio play deferred"));
 
             document.getElementById('input-screen').style.opacity = '0';
+            document.getElementById('input-screen').style.transform = 'scale(1.2)';
+            
             setTimeout(() => {
                 document.getElementById('input-screen').style.display = 'none';
                 document.getElementById('main-content').style.opacity = '1';
@@ -164,15 +202,37 @@
             const quotes = [
                 `Chúc ${name} năm mới vạn sự như ý, mã đáo thành công! 🐎`,
                 `Năm mới 2026, chúc ${name} sức khỏe vô biên, tiền vào như nước ❤️`,
-                `Chúc ${name} luôn rạng rỡ, thành công vang dội ✨`,
-                `Hạnh phúc đong đầy sẽ luôn mỉm cười với ${name} trong năm mới 😊`,
-                `Tân niên vạn phúc, phú quý cát tường nhé ${name} 🧧`
+                `Chúc ${name} luôn rạng rỡ, thành công vang dội trên mọi nẻo đường ✨`,
+                `Hạnh phúc đong đầy và bình an sẽ luôn mỉm cười với ${name} 😊`,
+                `Tân niên vạn phúc, phú quý cát tường gửi tới bạn ${name} 🧧`
             ];
             document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
         }
 
         function launchConfetti() {
-            confetti({ particleCount: 120, spread: 70, origin: { y: 0.8 }, colors: ['#FFD700', '#ffffff', '#ff0000'] });
+            const end = Date.now() + (2 * 1000);
+            const colors = ['#FFD700', '#ffffff', '#ff0000'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
         }
     </script>
 </body>
