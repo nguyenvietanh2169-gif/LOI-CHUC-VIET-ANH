@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lời chúc Tết từ Việt Anh 🧧</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Charmonman:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     
     <style>
         * { box-sizing: border-box; }
@@ -12,23 +12,21 @@
             margin: 0; padding: 0;
             width: 100%; height: 100%;
             overflow: hidden; position: fixed;
-            background-color: #8b0000;
-            font-family: 'Charmonman', cursive;
+            background-color: #4a0404;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        /* NỀN TRANG WEB */
+        /* NỀN MỚI CỦA BẠN */
         body { 
             display: flex; justify-content: center; align-items: center; 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/IMG_5894.jpeg?raw=true') no-repeat center center; 
+            background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-VIET-ANH/blob/main/IMG_5937.jpeg?raw=true') no-repeat center center; 
             background-size: cover; 
         }
 
         /* MÀN HÌNH NHẬP TÊN */
         #input-screen {
-            position: absolute;
-            z-index: 100;
-            background: rgba(139, 0, 0, 0.95);
+            position: absolute; z-index: 100;
+            background: rgba(0, 0, 0, 0.85);
             width: 100%; height: 100%;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
@@ -36,65 +34,41 @@
         }
 
         .input-box {
-            background: #FFD700;
-            padding: 30px;
-            border-radius: 15px;
-            border: 3px solid #f1c40f;
-            box-shadow: 0 0 30px rgba(0,0,0,0.6);
-            text-align: center;
-            width: 85%; max-width: 320px;
+            background: linear-gradient(145deg, #ffd700, #b8860b);
+            padding: 30px; border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            text-align: center; width: 85%; max-width: 320px;
         }
 
         input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            margin: 15px 0;
-            border: 2px solid #8b0000;
-            border-radius: 8px;
-            font-family: 'Charmonman', cursive;
-            font-size: 1.1rem;
-            text-align: center;
-            outline: none;
+            width: 100%; padding: 12px; margin: 15px 0;
+            border: none; border-radius: 8px;
+            font-size: 1rem; text-align: center; outline: none;
         }
 
         .btn-start {
-            background: #8b0000;
-            color: #FFD700;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            font-family: 'Charmonman', cursive;
-            font-weight: bold;
+            background: #8b0000; color: #fff; border: none;
+            padding: 12px 25px; border-radius: 8px;
+            font-weight: bold; cursor: pointer;
         }
 
-        /* MÀN HÌNH CHÍNH */
+        /* BỐ CỤC CHÍNH */
         #main-content {
-            opacity: 0;
-            pointer-events: none;
+            opacity: 0; pointer-events: none;
             transition: opacity 1.5s ease;
-            display: flex;
-            flex-direction: column;
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            justify-content: space-between; /* Đẩy các phần tử ra 2 đầu */
             align-items: center;
-            width: 100%;
+            padding: 40px 20px; /* Tạo khoảng trống trên dưới */
         }
 
-        .diamond-safe-area {
-            position: relative;
-            width: 90vw; height: 90vw;
-            max-width: 400px; max-height: 400px;
-            display: flex; flex-direction: column; align-items: center;
-        }
-
-        /* LOGO VANZI */
+        /* LOGO NẰM PHÍA TRÊN CON NGỰA */
         .logo-vanzi {
-            width: 170px;
+            width: 150px;
             height: auto;
-            position: absolute;
-            top: 5%;
-            z-index: 20;
-            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.6));
+            margin-top: 20px; /* Điều chỉnh để nằm trên đầu ngựa */
+            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.8));
             animation: float 3s ease-in-out infinite;
         }
 
@@ -103,35 +77,39 @@
             50% { transform: translateY(-10px); }
         }
 
+        /* KHỐI CHỮ NẰM PHÍA DƯỚI CON NGỰA */
         .text-group {
-            position: absolute;
-            top: 40%;
-            width: 85%;
+            width: 100%;
+            max-width: 350px;
             text-align: center;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
-            color: #F7E7CE;
-            z-index: 15;
+            margin-bottom: 30px; /* Đẩy sát xuống dưới chân ngựa */
+            background: rgba(0, 0, 0, 0.3); /* Tạo nền mờ để dễ đọc chữ */
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(3px);
         }
 
         h1 { 
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Cinzel', serif; /* Font chữ sang trọng hợp với ngựa vàng */
             color: #FFD700; 
-            font-size: 1.8rem; 
+            font-size: 1.5rem; 
             margin: 0 0 10px 0;
+            letter-spacing: 2px;
         }
 
         #quote { 
-            font-size: 1.15rem; 
-            font-weight: bold;
-            min-height: 80px;
-            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; 
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.5;
+            min-height: 60px;
         }
 
         .signature {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #FFD700;
-            margin-top: 15px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -143,21 +121,19 @@
 
     <div id="input-screen">
         <div class="input-box">
-            <h2 style="color: #8b0000; margin-top: 0;">Chúc Mừng Năm Mới 🧧</h2>
-            <input type="text" id="userName" placeholder="Nhập tên của bạn..." maxlength="20">
-            <button class="btn-start" onclick="startApp()">Nhận Lời Chúc & Nhạc 🎵</button>
+            <h2 style="color: #4a0404; font-family: 'Cinzel', serif; margin-top: 0;">NHẬP TÊN NHẬN QUÀ</h2>
+            <input type="text" id="userName" placeholder="Tên của bạn..." maxlength="20">
+            <button class="btn-start" onclick="startApp()">KHÁM PHÁ NGAY 🧧</button>
         </div>
     </div>
 
     <div id="main-content">
-        <div class="diamond-safe-area">
-            <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/Ba%CC%89n%20sao%20cu%CC%89a%20Ba%CC%89n%20sao%20cu%CC%89a%20logo%20vanzi%20ver%202%20(1).png?raw=true" alt="Logo Vanzi" class="logo-vanzi">
-            
-            <div class="text-group">
-                <h1>Chúc Mừng Năm Mới</h1>
-                <div id="quote"></div>
-                <div class="signature">Thân tặng từ: Việt Anh</div>
-            </div>
+        <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/Ba%CC%89n%20sao%20cu%CC%89a%20Ba%CC%89n%20sao%20cu%CC%89a%20logo%20vanzi%20ver%202%20(1).png?raw=true" alt="Logo Vanzi" class="logo-vanzi">
+        
+        <div class="text-group">
+            <h1>HAPPY NEW YEAR</h1>
+            <div id="quote"></div>
+            <div class="signature">Thân tặng từ: Việt Anh</div>
         </div>
     </div>
 
@@ -166,15 +142,14 @@
         function startApp() {
             const name = document.getElementById('userName').value.trim();
             if (name === "") {
-                alert("Vui lòng nhập tên để nhận quà nhé!");
+                alert("Bạn chưa nhập tên mà!");
                 return;
             }
 
-            // Phát nhạc
             const audio = document.getElementById('tetAudio');
+            audio.volume = 0.8;
             audio.play();
 
-            // Chuyển màn hình
             document.getElementById('input-screen').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('input-screen').style.display = 'none';
@@ -187,28 +162,18 @@
 
         function showWish(name) {
             const quotes = [
-                `Chúc ${name} năm mới vạn sự như ý, tỷ sự như mơ 🧧`,
-                `Năm mới túi luôn đầy tiền, tim luôn đầy tình nhé ${name} ❤️`,
-                `Chúc ${name} sức khỏe dồi dào, vạn sự tốt lành ✨`,
-                `Năm 2026 rực rỡ và thành công vang dội nhé ${name} 🚀`,
-                `Hạnh phúc đong đầy, gói trọn niềm vui đến với ${name} 😊`
+                `Chúc ${name} năm mới vạn sự như ý, mã đáo thành công! 🐎`,
+                `Năm mới 2026, chúc ${name} sức khỏe vô biên, tiền vào như nước ❤️`,
+                `Chúc ${name} luôn rạng rỡ, thành công vang dội ✨`,
+                `Hạnh phúc đong đầy sẽ luôn mỉm cười với ${name} trong năm mới 😊`,
+                `Tân niên vạn phúc, phú quý cát tường nhé ${name} 🧧`
             ];
             document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
         }
 
         function launchConfetti() {
-            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#FFD700', '#ff0000', '#ffffff'] });
+            confetti({ particleCount: 120, spread: 70, origin: { y: 0.8 }, colors: ['#FFD700', '#ffffff', '#ff0000'] });
         }
-
-        setInterval(() => {
-            if(document.getElementById('input-screen').style.display === 'none') {
-                confetti({
-                    particleCount: 1, startVelocity: 0, ticks: 200,
-                    origin: { x: Math.random(), y: Math.random() - 0.2 },
-                    colors: ['#FFD700', '#ff0000'], gravity: 0.6, scalar: 0.8
-                });
-            }
-        }, 300);
     </script>
 </body>
 </html>
